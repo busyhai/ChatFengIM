@@ -9,11 +9,16 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/chat" />
-            <option value="$PROJECT_DIR$/chat_content" />
+            <option value="$PROJECT_DIR$/chat_contents" />
+            <option value="$PROJECT_DIR$/chat_redbag" />
             <option value="$PROJECT_DIR$/chat_web" />
+            <option value="$PROJECT_DIR$/friends" />
+            <option value="$PROJECT_DIR$/friends_contents" />
             <option value="$PROJECT_DIR$/home" />
             <option value="$PROJECT_DIR$/login" />
             <option value="$PROJECT_DIR$/start" />
+            <option value="$PROJECT_DIR$/wallet" />
+            <option value="$PROJECT_DIR$/wallet_transfer" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
