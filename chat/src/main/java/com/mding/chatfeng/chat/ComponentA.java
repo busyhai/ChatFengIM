@@ -13,6 +13,7 @@ public class ComponentA implements IComponent {
     }
     @Override
     public boolean onCall(CC cc) {
+
         String actionName = cc.getActionName();
         switch (actionName) {
             case "showActivity": //响应actionName为"showActivity"的组件调用

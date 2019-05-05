@@ -1,12 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+
     repositories {
+        maven{ url rootProject.file("repo-local") }
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         google()
-        mavenCentral()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath 'com.billy.android:cc-register:1.0.9'
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -17,11 +21,36 @@ buildscript {
 
 allprojects {
     repositories {
+        maven{ url rootProject.file("repo-local") }
+        maven { url "https://jitpack.io" }
         google()
         jcenter()
     }
 }
 
+
+
 task clean(type: Delete) {
     delete rootProject.buildDir
+
 }
+
+
+ext {
+
+    buildToolsVersion = "28.0.3"
+    minSdkVersion = 16
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+    appcompatVersion= '1.1.0-alpha04'
+    materialVersion='1.1.0-alpha05'
+    annotationVersion='1.1.0-beta01'
+    butterknifeVersion = '10.1.0'
+    supportVersion = '25.3.1'
+
+    deps = [
+            cc       : 'com.billy.android:cc:2.1.5'
+//        cc       : project(':cc')
+    ]
+}
+

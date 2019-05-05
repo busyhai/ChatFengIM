@@ -1,8 +1,7 @@
 apply from: rootProject.file('cc-settings-2.gradle')
 android {
     compileSdkVersion 28
-
-
+//    compileSdkVersion rootProject.compileVersion
 
     defaultConfig {
         //仅在以application方式编译时才添加applicationId属性
