@@ -1,1 +1,1 @@
-include ':chat', ':login', ':start', ':home', ':chat_contents', ':chat_web', ':chat_redbag', ':wallet', ':wallet_transfer', ':friends', ':friends_contents'
+include ':chat', ':login', ':start', ':home', ':chat_send_receive', ':chat_web', ':chat_redbag', ':wallet', ':wallet_transfer', ':friends', ':friends_contents', ':chat_media'
