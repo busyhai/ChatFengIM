@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mding.chatfeng.chat_video">
+    package="com.mding.chatfeng.chat_media">
 
     <application>
-        <activity android:name=".VideoActivity"/>
+        <activity android:name=".MediaActivity">  </activity>
     </application>
+
 
 </manifest>

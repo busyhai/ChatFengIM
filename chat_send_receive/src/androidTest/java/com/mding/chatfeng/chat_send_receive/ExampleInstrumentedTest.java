@@ -1,4 +1,4 @@
-package com.mding.chatfeng.chat_content;
+package com.mding.chatfeng.chat_send_receive;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.mding.chatfeng.chat_content", appContext.getPackageName());
+        assertEquals("com.mding.chatfeng.chat_send_receive", appContext.getPackageName());
     }
 }

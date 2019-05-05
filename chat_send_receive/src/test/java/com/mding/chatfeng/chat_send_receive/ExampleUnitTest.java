@@ -1,4 +1,4 @@
-package com.mding.chatfeng.chat_video;
+package com.mding.chatfeng.chat_send_receive;
 
 import org.junit.Test;
 

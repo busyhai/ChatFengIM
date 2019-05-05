@@ -1,5 +1,4 @@
 apply from: rootProject.file('cc-settings-2.gradle')
-
 android {
     compileSdkVersion 28
 
@@ -7,8 +6,9 @@ android {
 
     defaultConfig {
         if (project.ext.runAsApp) {
-        applicationId "com.mding.chatfeng.chat_video"
-             }
+            applicationId "com.mding.chatfeng.chat_media"
+        }
+
 
         minSdkVersion 18
         targetSdkVersion 28

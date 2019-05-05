@@ -7,9 +7,8 @@ android {
 
     defaultConfig {
         if (project.ext.runAsApp) {
-            applicationId "com.mding.chatfeng.chat_content"
+            applicationId "com.mding.chatfeng.chat_send_receive"
         }
-
         minSdkVersion 18
         targetSdkVersion 28
         versionCode 1

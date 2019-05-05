@@ -1,4 +1,4 @@
-package com.mding.chatfeng.chat_video;
+package com.mding.chatfeng.chat_media;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.mding.chatfeng.chat_video", appContext.getPackageName());
+        assertEquals("com.mding.chatfeng.chat_media", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.mding.chatfeng.chat_content;
+package com.mding.chatfeng.chat_media;
 
 import org.junit.Test;
 

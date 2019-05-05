@@ -1,6 +1,4 @@
 apply from: rootProject.file('cc-settings-2.gradle')
-
-
 android {
     compileSdkVersion 28
 
