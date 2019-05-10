@@ -3,7 +3,8 @@
     package="com.mding.chatfeng.home">
 
     <application>
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".HomeActivity"
+            />
     </application>
 
 </manifest>
