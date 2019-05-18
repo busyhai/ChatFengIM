@@ -1,4 +1,4 @@
-package com.mding.chatfeng.socket;
+package debug;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -11,6 +11,9 @@ import android.widget.Button;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.mding.chatfeng.base_common.utils.AppConfig;
+import com.mding.chatfeng.socket.R;
+import com.mding.chatfeng.socket.RedirectException;
 import com.mding.chatfeng.socket.data.HandShakeBean;
 import com.mding.chatfeng.socket.data.MsgDataBean;
 import com.mding.chatfeng.socket.data.ProtocolReceive;

@@ -3,7 +3,7 @@
     package="com.mding.chatfeng.socket">
 
     <application>
-    <activity android:name=".SocketActivity"/>
+    <activity android:name="debug.SocketActivity"/>
     </application>
 
 </manifest>
