@@ -44,6 +44,15 @@ ccregister.registerInfo.add([
 ])
 
 
+//OkSocket
+ccregister.registerInfo.add([
+        //在自动注册组件的基础上增加：自动注册组件B的processor
+        'scanInterface'             : 'com.mding.chatfeng.socket.components.task.IActionProcessor'
+        , 'codeInsertToClassName'   : 'com.mding.chatfeng.socket.components.IC_Socket'
+        , 'codeInsertToMethodName'  : 'initProcessors'
+        , 'registerMethodName'      : 'add'
+])
+
 //公共库组件
 ccregister.registerInfo.add([
     //在自动注册组件的基础上增加：自动注册组件B的processor
@@ -52,6 +61,9 @@ ccregister.registerInfo.add([
         , 'codeInsertToMethodName'  : 'initProcessors'
         , 'registerMethodName'      : 'add'
 ])
+
+
+
 
 //开启app内部多进程组件调用时启用下面这行代码
 //文档地址：https://luckybilly.github.io/CC-website/#/manual-multi-process

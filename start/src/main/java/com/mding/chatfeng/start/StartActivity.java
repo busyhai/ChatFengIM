@@ -46,9 +46,9 @@ public class StartActivity extends AppCompatActivity {
                 });
 */
 
-        CC.registerGlobalInterceptor(new Base());
-        CC.obtainBuilder("login.IC_CheckLogin")
-                .setActionName("IA_FindTokenAndLogin").addParam("wdh","wdwdwd")
+//  CC.registerGlobalInterceptor(new Base());
+     CC.obtainBuilder("login.IC_CheckLogin")
+                .setActionName("IA_FindTokenAndLogin").addParam("wdh","wdwdwd").withoutGlobalInterceptor()
                 .build()
                 .callAsync(new IComponentCallback() {
                     @Override
@@ -56,17 +56,13 @@ public class StartActivity extends AppCompatActivity {
                         String toast = "IA_LoginByToken " + (result.isSuccess() ? "success" : "failed");
                         Log.i("xf", "============log after----:" + result);
 
-              /*          //跳转至登入页
-                        CC.obtainBuilder("login.IC_CheckLogin")
-                                .setActionName("IA_FindTokenAndLogin").addParam("toAct",true)
-                                .build()
-                                .call();*/
-                    }
+                        /* //跳转至登入页
+                        CC.obtainBuilder("login.IC_CheckLogin").setActionName("IA_FindTokenAndLogin").addParam("toAct",true).build().call();*/
+              }
                 });
 
 
-
-    }
+            }
 
 
 

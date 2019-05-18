@@ -37,7 +37,7 @@ dependencies {
 
 
     addComponent 'login'
-
+    addComponent 'base_net_socket'
 //    addComponent 'home', project(':home')
 
     implementation 'com.qmuiteam:arch:0.3.1'

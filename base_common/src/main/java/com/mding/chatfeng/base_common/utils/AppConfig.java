@@ -1,14 +1,13 @@
 package com.mding.chatfeng.base_common.utils;
 
+import android.util.Log;
+
 public class AppConfig {
 
 
 
-    public static String getComponName(Class clazz){
-        return clazz.getPackage().getName()+"."+clazz.getSimpleName();
-    }
-
-
-
+public static void logs(String rs){
+    Log.d("xf",rs);
+}
 
 }

@@ -7,6 +7,7 @@ import com.billy.cc.core.component.CCResult;
 import com.billy.cc.core.component.IComponent;
 import com.billy.cc.core.component.IMainThread;
 import com.mding.chatfeng.base_common.utils.AppConfig;
+import com.mding.chatfeng.socket.components.task.IA_BindUid;
 import com.mding.chatfeng.socket.components.task.IActionProcessor;
 
 import java.util.HashMap;
@@ -26,13 +27,11 @@ public class IC_Socket implements IComponent, IMainThread {
 
     @Override
     public String getName() {
-
-        return AppConfig.getComponName(getClass());
+        return getClass().getPackage().getName()+"."+getClass().getSimpleName();
     }
 
     @Override
     public boolean onCall(CC cc) {
-        Log.d("xx","````````11111###############`````");
         if (initialized.compareAndSet(false, true)) {
             synchronized (map) {
                 initProcessors();
@@ -47,15 +46,15 @@ public class IC_Socket implements IComponent, IMainThread {
             return processor.onActionCall(cc);
         }
         CC.sendCCResult(cc.getCallId(), CCResult.errorUnsupportedActionName());
-        Log.d("xx","````````222222###############`````");
         return false;
     }
 
     @Override
     public Boolean shouldActionRunOnMainThread(String actionName, CC cc) {
-        if ("login".equals(actionName)) {
+        if (IA_BindUid.class.getSimpleName().equals(actionName)) {
 
-            return true;
+
+            return false;
         }
         return null;
     }

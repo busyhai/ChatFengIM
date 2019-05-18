@@ -5,6 +5,7 @@ import android.util.Log;
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
 import com.billy.cc.core.component.CCUtil;
+import com.mding.chatfeng.base_common.utils.AppConfig;
 
 
 /**
@@ -15,13 +16,19 @@ public class IA_BindUid implements IActionProcessor{
 
     @Override
     public String getActionName() {
-        return IA_BindUid.class.getSimpleName();
+        return getClass().getSimpleName();
     }
 
     @Override
     public boolean onActionCall(CC cc) {
 
-
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Log.d("xf","~````````````````IA_BindUid~");
+        CC.sendCCResult(cc.getCallId(), CCResult.success());
 
         return false;
     }

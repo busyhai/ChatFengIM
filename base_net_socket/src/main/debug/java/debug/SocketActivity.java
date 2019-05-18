@@ -8,12 +8,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.billy.cc.core.component.CC;
+import com.billy.cc.core.component.CCResult;
+import com.billy.cc.core.component.CCUtil;
+import com.billy.cc.core.component.IComponentCallback;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mding.chatfeng.base_common.utils.AppConfig;
+import com.mding.chatfeng.base_common.utils.CompentHelper;
+import com.mding.chatfeng.base_interceptor.Interceptor;
 import com.mding.chatfeng.socket.R;
 import com.mding.chatfeng.socket.RedirectException;
+import com.mding.chatfeng.socket.components.IC_Socket;
+import com.mding.chatfeng.socket.components.task.IA_BindUid;
 import com.mding.chatfeng.socket.data.HandShakeBean;
 import com.mding.chatfeng.socket.data.MsgDataBean;
 import com.mding.chatfeng.socket.data.ProtocolReceive;
@@ -167,6 +175,10 @@ public class SocketActivity extends AppCompatActivity {
         initData();
         setListener();
         mManager.connect();
+
+
+
+
     }
 
 
@@ -196,7 +208,7 @@ public class SocketActivity extends AppCompatActivity {
 
 
     private void setListener() {
-        Button button = findViewById(R.id.button);
+        final Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,6 +218,19 @@ public class SocketActivity extends AppCompatActivity {
             }
         });
         mManager.registerReceiver(adapter);
+
+
+
+
+        CompentHelper.create(IC_Socket.class, IA_BindUid.class).addInterceptor(new Interceptor()).build().callAsync(new IComponentCallback() {
+            @Override
+            public void onResult(CC loginCC, CCResult result) {
+                AppConfig.logs(result.toString());
+
+//                button.setText("ddddddddddddddddddd");
+            }
+        });
+
     }
 
 
