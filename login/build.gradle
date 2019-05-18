@@ -4,7 +4,6 @@ android {
     compileSdkVersion 28
 
 
-
     defaultConfig {
         //仅在以application方式编译时才添加applicationId属性
         if (project.ext.runAsApp) {

@@ -16,6 +16,7 @@ import com.billy.cc.core.component.CCUtil;
 import com.billy.cc.core.component.IComponentCallback;
 import com.billy.cc.core.component.IDynamicComponent;
 import com.billy.cc.core.component.IMainThread;
+import com.mding.chatfeng.base_interceptor.Base;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -45,14 +46,15 @@ public class StartActivity extends AppCompatActivity {
                 });
 */
 
+        CC.registerGlobalInterceptor(new Base());
         CC.obtainBuilder("login.IC_CheckLogin")
-                .setActionName("IA_FindTokenAndLogin")
+                .setActionName("IA_FindTokenAndLogin").addParam("wdh","wdwdwd")
                 .build()
                 .callAsync(new IComponentCallback() {
                     @Override
                     public void onResult(CC loginCC, CCResult result) {
                         String toast = "IA_LoginByToken " + (result.isSuccess() ? "success" : "failed");
-
+                        Log.i("xf", "============log after----:" + result);
 
               /*          //跳转至登入页
                         CC.obtainBuilder("login.IC_CheckLogin")

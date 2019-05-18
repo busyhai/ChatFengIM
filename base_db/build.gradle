@@ -13,6 +13,11 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        ndk {
+            // 只接入 armeabi-v7a 和 x86 架构
+            abiFilters 'armeabi-v7a', 'x86'
+        }
+
     }
 
     buildTypes {
@@ -31,4 +36,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation 'com.tencent.wcdb:wcdb-android:1.0.0'
 }

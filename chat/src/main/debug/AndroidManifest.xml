@@ -3,7 +3,7 @@
     package="com.mding.chatfeng.chat">
 
     <application
-        android:name="debug.DebugApplication"
+        android:name="debug.debug.DebugApplication"
         android:icon="@mipmap/demo_a_ic_launcher"
         android:label="@string/demo_a_app_name"
         android:theme="@style/demo_a_AppTheme">

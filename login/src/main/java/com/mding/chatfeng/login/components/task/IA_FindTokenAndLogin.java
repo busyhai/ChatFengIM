@@ -27,6 +27,7 @@ public class IA_FindTokenAndLogin implements IActionProcessor{
 
     @Override
     public boolean onActionCall(CC cc) {
+
   /*      boolean is2Act= (boolean) cc.getParams().get("toAct");
         if(is2Act)
         {
@@ -58,7 +59,7 @@ public class IA_FindTokenAndLogin implements IActionProcessor{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
+            Log.i("xfff", "===lor:" +  CCResult.success()+"============="+cc.getParamItem("wdh"));
             CC.sendCCResult(cc.getCallId(), CCResult.success());
             CCUtil.navigateTo(cc, LoginActivity.class);
         }
