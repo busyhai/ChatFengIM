@@ -1,14 +1,5 @@
 package com.mding.chatfeng.socket.data;
 
-import android.util.Log;
-
-import com.google.gson.Gson;
-import com.mding.chatfeng.base_common.bean.BindUid;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * Created by xuhao on 2017/5/22.
  */

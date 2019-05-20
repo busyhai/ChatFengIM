@@ -1,19 +1,13 @@
 package debug;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.billy.cc.core.component.BuildConfig;
 import com.billy.cc.core.component.CC;
-import com.billy.cc.core.component.CCResult;
-import com.billy.cc.core.component.IComponentCallback;
-import com.mding.chatfeng.base_common.request.RequestHelper;
-import com.mding.chatfeng.base_common.utils.AppConfig;
-import com.mding.chatfeng.base_common.utils.CompentHelper;
-import com.mding.chatfeng.base_interceptor.Base;
-import com.mding.chatfeng.base_interceptor.Interceptor;
-import com.mding.chatfeng.socket.components.IC_Socket;
-import com.mding.chatfeng.socket.components.task.IA_BindUid;
+import com.mding.chatfeng.base_common.request.bean.PrivateChatBean;
+import com.mding.chatfeng.base_common.request.bean.UserBean;
+import com.mding.chatfeng.base_common.request.Create;
+import com.mding.chatfeng.base_common.request.base.AppConfig;
 
 public class DebugApplication extends Application {
     @Override
@@ -24,6 +18,16 @@ public class DebugApplication extends Application {
         CC.enableRemoteCC(BuildConfig.DEBUG);
 
 
-    AppConfig.logs(RequestHelper.getRequestSocket().bindUid());
+    AppConfig.logs(Create.getRequestSocket().bindUid(new UserBean("fwwf111111111111fw","fwfw")));
+
+    PrivateChatBean mPrivateChatBean=new PrivateChatBean("@@@@@@@@","$$23");
+    mPrivateChatBean.setFriendsId("wd");
+    mPrivateChatBean.setMessage("你对我的的hi海沃德");
+    AppConfig.logs(Create.getRequestSocket().sendPrivateChat(mPrivateChatBean));
+    AppConfig.logs(Create.getRequestSocket().heart());
+
+
     }
+
+
     }

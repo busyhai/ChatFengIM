@@ -1,7 +1,7 @@
 package com.mding.chatfeng.login.util;
 import android.text.TextUtils;
 import com.billy.cc.core.component.CC;
-import com.mding.chatfeng.base_common.bean.User;
+import com.mding.chatfeng.base_common.request.bean.UserBean;
 
 
 import java.util.Map;
@@ -16,7 +16,7 @@ public class UserStateManager {
     public static final String KEY_USER = "user";
 
     /** 当前登录用户 */
-    private static User loginUser;
+    private static UserBean loginUser;
 
     /** 存储当前监听登录状态的所有组件的名称-action键值对 */
     private static final Map<String, String> USER_LOGIN_OBSERVER = new ConcurrentHashMap<>();
@@ -52,14 +52,14 @@ public class UserStateManager {
                 .build().callAsync();
     }
 
-    public static void setLoginUser(User user) {
+    public static void setLoginUser(UserBean user) {
         if (user != loginUser) {
             loginUser = user;
             onUserLoginStateUpdated();
         }
     }
 
-    public static User getLoginUser() {
+    public static UserBean getLoginUser() {
         return loginUser;
     }
 

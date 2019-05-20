@@ -10,12 +10,11 @@ import android.widget.Button;
 
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
-import com.billy.cc.core.component.CCUtil;
 import com.billy.cc.core.component.IComponentCallback;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.mding.chatfeng.base_common.utils.AppConfig;
+import com.mding.chatfeng.base_common.request.base.AppConfig;
 import com.mding.chatfeng.base_common.utils.CompentHelper;
 import com.mding.chatfeng.base_interceptor.Interceptor;
 import com.mding.chatfeng.socket.R;

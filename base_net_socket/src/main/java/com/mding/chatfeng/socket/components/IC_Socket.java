@@ -6,7 +6,6 @@ import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
 import com.billy.cc.core.component.IComponent;
 import com.billy.cc.core.component.IMainThread;
-import com.mding.chatfeng.base_common.utils.AppConfig;
 import com.mding.chatfeng.socket.components.task.IA_BindUid;
 import com.mding.chatfeng.socket.components.task.IActionProcessor;
 

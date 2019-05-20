@@ -4,8 +4,6 @@ import android.util.Log;
 
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
-import com.billy.cc.core.component.CCUtil;
-import com.mding.chatfeng.base_common.utils.AppConfig;
 
 
 /**

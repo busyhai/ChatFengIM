@@ -18,7 +18,7 @@ import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
 import com.billy.cc.core.component.CCUtil;
 import com.billy.cc.core.component.IComponentCallback;
-import com.mding.chatfeng.base_common.bean.User;
+import com.mding.chatfeng.base_common.request.bean.UserBean;
 import com.mding.chatfeng.login.util.UserStateManager;
 
 import java.util.ArrayList;
@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             //仅业务提示，登录操作并未结束
             Toast.makeText(this,"onClick", Toast.LENGTH_SHORT).show();
         } else {
-            UserStateManager.setLoginUser(new User(1, username));
+            UserStateManager.setLoginUser(new UserBean(1, username));
 
 
             //获取token并保存
@@ -104,29 +104,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 result = CCResult.error("login canceled");
             } else {
                 //演示跨app传递自定义类型及各种集合类型
-                List<User> list = new ArrayList<>();
-                list.add(new User(1, "aaa"));
-                list.add(new User(3, "ccc"));
-                SparseArray<User> userSparseArray = new SparseArray<>();
-                userSparseArray.put(1, new User(1, "a"));
-                userSparseArray.put(10, new User(10, "a"));
-                userSparseArray.put(30, new User(30, "a"));
-                User[][] userArray = new User[5][2];
+                List<UserBean> list = new ArrayList<>();
+                list.add(new UserBean(1, "aaa"));
+                list.add(new UserBean(3, "ccc"));
+                SparseArray<UserBean> userSparseArray = new SparseArray<>();
+                userSparseArray.put(1, new UserBean(1, "a"));
+                userSparseArray.put(10, new UserBean(10, "a"));
+                userSparseArray.put(30, new UserBean(30, "a"));
+                UserBean[][] userArray = new UserBean[5][2];
                 SparseIntArray sparseIntArray = new SparseIntArray();
                 sparseIntArray.put(1, 111);
                 sparseIntArray.put(2, 222);
-                Map<String, User> map = new HashMap<>();
-                map.put("user1", new User(1, "111"));
-                map.put("user2", new User(2, "222"));
+                Map<String, UserBean> map = new HashMap<>();
+                map.put("user1", new UserBean(1, "111"));
+                map.put("user2", new UserBean(2, "222"));
 
-                result = CCResult.success(UserStateManager.KEY_USER, UserStateManager.getLoginUser()) //User
-                        .addData("list", list) // List<User>
+                result = CCResult.success(UserStateManager.KEY_USER, UserStateManager.getLoginUser()) //UserBean
+                        .addData("list", list) // List<UserBean>
                         .addData("nullObject", null) //null
-                        .addData("sparseArray", userSparseArray) //SparseArray<User>
+                        .addData("sparseArray", userSparseArray) //SparseArray<UserBean>
                         .addData("sparseIntArray", sparseIntArray) //SparseIntArray/SparseLongArray
-                        .addData("user2Array", userArray) // User[][]
+                        .addData("user2Array", userArray) // UserBean[][]
                         .addData("untypedArray", list.toArray()) // Object[]
-                        .addData("typedArray", list.toArray(new User[]{})) // User[]
+                        .addData("typedArray", list.toArray(new UserBean[]{})) // UserBean[]
                         .addData("map", map) // Map
                 ;
             }

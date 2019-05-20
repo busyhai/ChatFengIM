@@ -1,6 +1,15 @@
 package com.mding.chatfeng.base_common.request;
 
-public class RequestHelper {
+import com.mding.chatfeng.base_common.request.type.RequestDb;
+import com.mding.chatfeng.base_common.request.type.RequestHttp;
+import com.mding.chatfeng.base_common.request.type.RequestSocket;
+
+
+/**
+ * 请求调用入口
+ * wdh
+ */
+public class Create {
     public static RequestSocket mRequestSocket;
     public static RequestHttp mRequestHttp;
     public static RequestDb mRequestDb;
