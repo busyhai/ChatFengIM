@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.PowerManager;
 
 import com.billy.cc.core.component.CC;
+import com.mding.chatfeng.base_common.request.create;
 import com.qmuiteam.qmui.arch.QMUISwipeBackActivityManager;
 
 public class BaseApplication extends Application {
@@ -18,11 +19,13 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         initCC(false);
-        QMUISwipeBackActivityManager.init(this);
+//        QMUISwipeBackActivityManager.init(this);
 
         pm=(PowerManager)getSystemService(Context.POWER_SERVICE);
         wakeLock=pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"CPUKeepRunning");
         wakeLock.acquire();
+
+
     }
 
 

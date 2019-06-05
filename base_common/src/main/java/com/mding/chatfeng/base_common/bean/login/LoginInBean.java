@@ -15,34 +15,10 @@ public class LoginInBean extends BaseBean {
      * record : {"nickName":"杰克","userId":"cfa4-6337-6e4","mobile":"18150960007","wxSno":"8ef25d1f506e97bd456b5c1e4","userToken":"996343CB-1172-CC9B-A4F7-819ACA6C9FFA","isFirstLogin":2,"headImg":"dmCC","qrcode":"1_xm6leefun_cfa4-6337-6e4","personaSignature":"","modified":"1553932319","isUpdate":1,"serverIpWs":"ws://127.0.0.1:5053","upSnoNum":"1","serverIpHttp":"127.0.0.1:5052"}
      */
 
-    private int code;
-    private String msg;
-    private String method;
+
     private RecordBean record;
 
-    public int getCode() {
-        return code;
-    }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public String getMethod() {
-        return method;
-    }
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
 
     public RecordBean getRecord() {
         return record;

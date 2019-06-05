@@ -1,7 +1,7 @@
 package com.mding.chatfeng.login.util;
 import android.text.TextUtils;
 import com.billy.cc.core.component.CC;
-import com.mding.chatfeng.base_common.request.bean.UserBean;
+import com.mding.chatfeng.base_common.request.body.UserBean;
 
 
 import java.util.Map;

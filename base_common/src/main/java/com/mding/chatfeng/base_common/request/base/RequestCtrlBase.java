@@ -1,12 +1,14 @@
 package com.mding.chatfeng.base_common.request.base;
 
+import com.mding.chatfeng.base_common.AppConfig;
+
 import java.util.HashMap;
 
 /**
  * wdh
  *  请求接口的头部键名设置
  */
-public class RequestCtrlBase extends AppConfig{
+public class RequestCtrlBase extends AppConfig {
     private HashMap<String, Object> map = new HashMap<String, Object>();
     protected HashMap<String, Object> maps;
 
@@ -15,7 +17,7 @@ public class RequestCtrlBase extends AppConfig{
      * Socket
      * @return
      */
-    private HashMap<String, Object>  initCtn(){
+    protected HashMap<String, Object>  initCtn(){
         map.clear();
         return map;
     }
@@ -38,6 +40,7 @@ public class RequestCtrlBase extends AppConfig{
     protected void putMtns(String mtnName){
         if(maps!=null)
             maps.put(mtnKey(),mtnName);
+
     }
 
     /**
@@ -47,18 +50,10 @@ public class RequestCtrlBase extends AppConfig{
      */
     protected void putDatas(Object obj){
         if(maps!=null)
-            maps.put(getData(),obj);
+            maps.put(dataKey(),obj);
     }
 
 
-    /**
-     * 登入/注册-控制器
-     * POST/GET
-     * @return
-     */
-    public String LoginController() {
-        return  baseUrl.concat("LoginController");
-    }
 
 
 }

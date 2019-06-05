@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'realm-android'
 android {
     compileSdkVersion 28
 
@@ -37,5 +37,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    implementation 'com.tencent.wcdb:wcdb-android:1.0.0'
 }

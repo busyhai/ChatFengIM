@@ -4,46 +4,17 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.AsyncTask;
 
-import com.tencent.wcdb.database.SQLiteDatabase;
-import com.tencent.wcdb.database.SQLiteOpenHelper;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 
 public class Demo {
-    private SQLiteOpenHelper mDBHelper;
-    private SQLiteDatabase mDB;
-    Context mContext;
-    private int mDBVersion;
-    public Demo(){
+    public Demo(Context mContext) {
+        Realm.init(mContext);
 
-        new AsyncTask<Void, Void, Cursor>() {
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-            }
-
-            @Override
-            protected void onPostExecute(Cursor cursor) {
-                super.onPostExecute(cursor);
-            }
-
-            @Override
-            protected Cursor doInBackground(Void... voids) {
-                if (mDBHelper != null && mDB != null && mDB.isOpen()) {
-                    mDBHelper.close();
-                    mDBHelper = null;
-                    mDB = null;
-                }
-
-                mDBHelper = new PlainTextDBHelper(mContext);
-                mDBHelper.setWriteAheadLoggingEnabled(true);
-                mDB = mDBHelper.getWritableDatabase();
-                mDBVersion = mDB.getVersion();
-                return mDB.rawQuery("SELECT rowid as _id, content, '???' as sender FROM message;",
-                        null);
-            }
-        };
-
-
+        RealmConfiguration config = new RealmConfiguration.Builder().build();
+        config.getRealmFileName();
+        Realm.setDefaultConfiguration(config);
 
     }
-
 }

@@ -1,15 +1,14 @@
 apply plugin: 'com.android.library'
 android {
+    //noinspection GradleCompatible
     compileSdkVersion 26
 
     defaultConfig {
-        minSdkVersion 8
+        minSdkVersion 9
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -22,8 +21,10 @@ android {
 }
 
 dependencies {
-
-
-    implementation 'com.google.code.gson:gson:2.8.4'
     api rootProject.ext.deps.cc
+    implementation 'com.squareup.okhttp3:okhttp:3.1.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.0.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.1'
+    implementation 'com.google.code.gson:gson:2.8.4'
+    api 'com.tonystark.android:socket:latest.release'
 }

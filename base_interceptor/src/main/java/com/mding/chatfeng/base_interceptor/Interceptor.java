@@ -6,7 +6,7 @@ import android.support.annotation.RequiresApi;
 import com.billy.cc.core.component.CCResult;
 import com.billy.cc.core.component.Chain;
 import com.billy.cc.core.component.ICCInterceptor;
-import com.mding.chatfeng.base_common.request.base.AppConfig;
+import com.mding.chatfeng.base_common.AppConfig;
 
 public class Interceptor implements ICCInterceptor {
 

@@ -22,7 +22,7 @@ public class IA_FindTokenAndLogin implements IActionProcessor{
     Boolean isCan=true;
     @Override
     public String getActionName() {
-        return "IA_FindTokenAndLogin";
+        return "VupNickName";
     }
 
     @Override

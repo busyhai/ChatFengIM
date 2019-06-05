@@ -25,7 +25,7 @@ public class IA_GetTokenAndSave implements IActionProcessor{
         //解析成功后存储token并调用home模块，然后回调通知登入页
 
 
-        Log.d("xx","IActionProcessor:IA_GetTokenAndSave"+UserStateManager.getLoginUser().getUserName());
+        Log.d("xx","IA_Login:IA_GetTokenAndSave");
         CC.sendCCResult(cc.getCallId(), CCResult.success());
         return false;
     }

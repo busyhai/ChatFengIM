@@ -11,11 +11,12 @@ project.dependencies.add(dependencyMode, "com.billy.android:cc:2.1.5") //用最�
 
 dependencies {
     implementation project(':base_common')
+
     //2018-06-03新增：这里是为了示例添加全局拦截器
     if (project.ext.has('runAsApp') && project.ext.runAsApp) {
         //说明：需要兼容的情况有3种(单独组件作为app运行、打包在主app内、组件在多个app上复用但全局拦截器不同)
         //     为了兼容以上3种情况，建议将全局拦截器作为一个单独的module，在此处给不同app添加不同拦截器module
-        implementation project(':base_interceptor')
+//        implementation project(':base_interceptor')
     }
 }
 //此文件是作为组件化配置的公共gradle脚本文件，在每个组件中都apply此文件，下载到工程根目录后，可以在下方添加一些自己工程中通用的配置
@@ -53,16 +54,52 @@ ccregister.registerInfo.add([
         , 'registerMethodName'      : 'add'
 ])
 
-//公共库组件
+//推送组件入口
 ccregister.registerInfo.add([
-    //在自动注册组件的基础上增加：自动注册组件B的processor
-        'scanInterface'             : 'com.mding.chatfeng.base_common.components.task.IActionProcessor'
-        , 'codeInsertToClassName'   : 'com.mding.chatfeng.base_common.components.IC_CheckLogin'
+        //在自动注册组件的基础上增加：自动注册组件B的processor
+        'scanInterface'             : 'com.mding.chatfeng.base_common.components.myamqp.IA_Amqp'
+        , 'codeInsertToClassName'   : 'com.mding.chatfeng.base_common.components.myamqp.IC_Amqp'
+        , 'codeInsertToMethodName'  : 'initProcessors'
+        , 'registerMethodName'      : 'add'
+])
+
+//登入组件入口
+ccregister.registerInfo.add([
+        //在自动注册组件的基础上增加：自动注册组件B的processor
+        'scanInterface'             : 'com.mding.chatfeng.base_common.components.contact.IA_Contact'
+        , 'codeInsertToClassName'   : 'com.mding.chatfeng.base_common.components.contact.IC_Contact'
+        , 'codeInsertToMethodName'  : 'initProcessors'
+        , 'registerMethodName'      : 'add'
+])
+
+//联系人组件入口
+ccregister.registerInfo.add([
+        //在自动注册组件的基础上增加：自动注册组件B的processor
+        'scanInterface'             : 'com.mding.chatfeng.base_common.components.login.IA_Login'
+        , 'codeInsertToClassName'   : 'com.mding.chatfeng.base_common.components.login.IC_Login'
         , 'codeInsertToMethodName'  : 'initProcessors'
         , 'registerMethodName'      : 'add'
 ])
 
 
+
+//个人组件入口
+ccregister.registerInfo.add([
+        //在自动注册组件的基础上增加：自动注册组件B的processor
+        'scanInterface'             : 'com.mding.chatfeng.base_common.components.person.IA_Person'
+        , 'codeInsertToClassName'   : 'com.mding.chatfeng.base_common.components.person.IC_Person'
+        , 'codeInsertToMethodName'  : 'initProcessors'
+        , 'registerMethodName'      : 'add'
+])
+
+//公共组件访问入口
+ccregister.registerInfo.add([
+        //在自动注册组件的基础上增加：自动注册组件B的processor
+        'scanInterface'             : 'com.mding.chatfeng.base_common.components.common.IA_Common'
+        , 'codeInsertToClassName'   : 'com.mding.chatfeng.base_common.components.common.IC_Common'
+        , 'codeInsertToMethodName'  : 'initProcessors'
+        , 'registerMethodName'      : 'add'
+])
 
 
 //开启app内部多进程组件调用时启用下面这行代码
