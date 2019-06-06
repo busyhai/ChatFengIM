@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
-import com.mding.chatfeng.login.util.UserStateManager;
 
 /**
  * 根据登入请求信息获取Token

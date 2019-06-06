@@ -29,7 +29,7 @@ public class IC_Common implements com.billy.cc.core.component.IComponent, IMainT
 
     @Override
     public boolean onCall(CC cc) {
-        AppConfig.logs("-----");
+
         if (initialized.compareAndSet(false, true)) {
             synchronized (map) {
                 initProcessors();

@@ -41,9 +41,9 @@ public class StartActivity extends AppCompatActivity {
 
                             //异步回调成功后执行跳转组件
                             //此处测试
-                            testAmqp();
+//                            testAmqp();
 //                            tesCommon();
-//                            testHttp();
+                            testHttp();
                         }else{
                             AppConfig.logs("配置初始化失败，网络数据获取失败");
                             //此处可能取本地化
@@ -67,12 +67,13 @@ public class StartActivity extends AppCompatActivity {
      * @wdh
      */
     private void testHttp(){
-            create.getComsApi().doLoginMtn(create.login().register, new LoginInBody("123123", "5123123", "12312", "13123", "13")).build()
+            create.getComsApi().doCommon(create.login().controllersName,create.login().loginIn, new LoginInBody("18150960006", "e5e94876560ab8220f43cbd52854e80a")) .build()
                 .callAsync(new IComponentCallback() {
                     @Override
                     public void onResult(CC loginCC, CCResult result) {
-                        LoginInBean mLoginInBean = new GsonParamConverter().json2Object(result.getDataItem(loginCC.getActionName()).toString(), LoginInBean.class);
-                        AppConfig.logs("调用成败：" + result.isSuccess() + "  ---解析数据：" + mLoginInBean.getMsg());
+//                        LoginInBean mLoginInBean = new GsonParamConverter().json2Object(result.getDataItem(loginCC.getActionName()).toString(), LoginInBean.class);
+//                        AppConfig.logs("调用成败：" + result.isSuccess() + "  ---解析数据：" + mLoginInBean.getMsg());
+                        AppConfig.logs("调用成败：" + result.isSuccess());
                     }
                 });
     }
@@ -84,7 +85,7 @@ public class StartActivity extends AppCompatActivity {
      * 测试socket组件
      */
     private void testAmqp(){
-        create.getComsApi().doAmqpMtn(create.amqp().sendPrivateChat, new LoginInBody("123123", "5123123", "12312", "13123", "13")).build()
+        create.getComsApi().doAmqpMtn(create.amqp().sendPrivateChat, new LoginInBody("18150960006", "e5e94876560ab8220f43cbd52854e80a")).build()
                 .callAsync(new IComponentCallback() {
                     @Override
                     public void onResult(CC loginCC, CCResult result) {
@@ -101,7 +102,7 @@ public class StartActivity extends AppCompatActivity {
      * 测试socket组件
      */
     private void tesCommon(){
-        create.mComsApi.doCommon(create.amqp().controllersName,create.amqp().sendPrivateChat, new LoginInBody("123123", "5123123", "12312", "13123", "13")).build()
+        create.mComsApi.doCommon(create.amqp().controllersName,create.amqp().sendPrivateChat, new LoginInBody("18150960006", "e5e94876560ab8220f43cbd52854e80a")).build()
         /*create.mComsApi.doCommon(create.login().controllersName,create.login().register, new LoginInBody("123123", "5123123", "12312", "13123", "13")).build()*/
         .callAsync(new IComponentCallback() {
             @Override

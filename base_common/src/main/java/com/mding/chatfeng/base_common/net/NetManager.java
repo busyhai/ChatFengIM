@@ -1,5 +1,7 @@
 package com.mding.chatfeng.base_common.net;
 
+import android.database.Observable;
+
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
 import com.mding.chatfeng.base_common.net.socket.DoReciveSocket;
@@ -11,6 +13,8 @@ import com.mding.chatfeng.base_common.request.Api;
 import com.mding.chatfeng.base_common.AppConfig;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -95,12 +99,12 @@ public abstract class NetManager {
         ctn=cc.getComponentName();
         mtn=cc.getActionName();
         replaceApi();
-        Call<ResponseBody>  call=api.request(AppConfig.version,ctn,mtn, cc.getParamItem(cc.getActionName()));
-
+        String postData=cc.getParamItem(cc.getActionName()).toString();
+        Call<ResponseBody>  call=api.request(AppConfig.version,ctn,mtn,postData);
 
 
         AppConfig.logs("请求链接："+ call.request().url());
-        AppConfig.logs("请求数据："+ cc.getParamItem(cc.getActionName()));
+        AppConfig.logs("请求数据："+ postData);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

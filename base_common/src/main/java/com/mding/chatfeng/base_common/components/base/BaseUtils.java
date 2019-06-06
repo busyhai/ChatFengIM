@@ -73,7 +73,7 @@ public class BaseUtils extends RequestCtrlBase {
 
 //        request = baseUrl.concat("/").concat(ctnName).concat("/").concat(mtnBean.methodName).concat("@");
 
-        maps =initCtn();
+/*        maps =initCtn();
         Object[] dataBeans=dataBean;
         //设置数据体
         if(dataBeans!=null)
@@ -89,7 +89,25 @@ public class BaseUtils extends RequestCtrlBase {
         final HashMap<String,Object> urlDataMap=new HashMap<>();
         urlDataMap.put(postData(),maps);
 
-        return CCUtil.convertToJson(urlDataMap).toString();
+        return CCUtil.convertToJson(urlDataMap).toString();*/
+        //设置头部、控制器和方法
+        maps =setCtns(ctnName);
+        putMtns(mtnBean.methodName);
+
+        Object[] dataBeans=dataBean;
+        //设置数据体
+        if(dataBeans!=null)
+        {
+            maps.put(getVersion(),version);
+            beanList.clear();
+            for(Object obj:dataBean)
+                beanList.add(obj);
+            putDatas(beanList);
+        }
+        //设置post数据键名
+  /*      final HashMap<String,Object> urlDataMap=new HashMap<>();
+        urlDataMap.put(postData(),maps);*/
+        return CCUtil.convertToJson(maps).toString();
     }
 
 

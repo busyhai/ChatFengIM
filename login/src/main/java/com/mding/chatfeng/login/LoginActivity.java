@@ -1,95 +1,76 @@
 package com.mding.chatfeng.login;
 
-import android.support.annotation.Nullable;
+import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
 
-import com.billy.cc.core.component.CC;
-import com.billy.cc.core.component.CCResult;
-import com.billy.cc.core.component.CCUtil;
-import com.billy.cc.core.component.IComponentCallback;
-import com.mding.chatfeng.base_common.request.body.UserBean;
-import com.mding.chatfeng.login.util.UserStateManager;
+import com.mding.chatfeng.base_common.AppConfig;
+import com.mding.chatfeng.base_common.bean.login.User;
+import com.mding.chatfeng.base_common.components.base.DyCompentRegester;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.mding.chatfeng.base_common.components.base.UserStateManager;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText editText;
-    private String callId;
-
+public class LoginActivity extends DyCompentRegester implements View.OnClickListener {
+    private TextView loginUserTextView;
+//    private LoginUserObserverComponent loginUserObserverComponent;
+    private TextView loginUserButton;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        callId = CCUtil.getNavigateCallId(this);
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(20, 20, 20, 20);
-        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-        editText = new EditText(this);
-        editText.setHint("adwwdwddw");
-        editText.setText("billy");
-        layout.addView(editText, params);
-        Button button = new Button(this);
-        button.setText("dddd");
-        button.setOnClickListener(this);
-        layout.addView(button, params);
-        setContentView(layout);
+        setContentView(R.layout.activity_login);
+        loginUserButton = (TextView) findViewById(R.id.login_user_state_observer);
+        loginUserButton.setOnClickListener(this);
+        loginUserTextView = (TextView) findViewById(R.id.textView);
+        loginUserTextView.setOnClickListener(this);
+        loginUserButton.setText("注销用户动态组件");
     }
+
 
     @Override
     public void onClick(View v) {
-        String username = editText.getText().toString().trim();
-        if (TextUtils.isEmpty(username)) {
-            //仅业务提示，登录操作并未结束
-            Toast.makeText(this,"onClick", Toast.LENGTH_SHORT).show();
-        } else {
-
-
-
-            //获取token并保存
-            CC.obtainBuilder("login.IC_CheckLogin")
-                    .setActionName("IA_GetTokenAndSave")
-                    .build()
-                    .callAsync(new IComponentCallback() {
-                        @Override
-                        public void onResult(CC loginCC, CCResult result) {
-                            String toast = "IA_GetTokenAndSave " + (result.isSuccess() ? "success" : "failed");
-                            Log.d("xx",toast);
-                            if(result.isSuccess()){
-                                //如果保存成功则调用使用token登入
-                            }
-                        }
-                    });
-
-
-
-            //返回登录结果
-//            sendLoginResult();
-//            finish();
+        switch (v.getId()) {
+            case R.id.login_user_state_observer:
+                if (loginUserObserverComponent == null) {
+                  addDynamicComponent();
+                  loginUserButton.setText("注销用户动态组件");
+                } else {
+                   removeDynamicComponent();
+                   loginUserButton.setText(R.string.observe_login_user);
+                  loginUserTextView.setText("");
+                }
+                break;
+            case R.id.textView:
+                UserStateManager.setLoginUser(new User(1, "wdh"));
+//              UserStateManager.setLoginUser(new UserBean("123123","124123"));
+                break;
         }
+
+
     }
 
+    /**
+     * 添加组件到字典监听列表成功
+     */
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //为确保一定会调用CC.sendCCResult，在onDestroy中再次确认是否已返回登录结果
-//        sendLoginResult();
+    protected void addSucess() {
+
     }
 
-    private boolean resultSent;
+    /**
+     * 远程数据返回时候，调用  UserStateManager.setLoginUser(new User(1, "wdh"));此方法 触发所有监听组件
+     */
+    @Override
+    protected void listenData() {
 
+        if (loginUserTextView != null) {
+
+            AppConfig.logs(user == null ? "null" : user.getUserName());
+
+           loginUserTextView.setText(getString(R.string.show_login_user, user == null ? "null" : user.getUserName()));
+    }
+    }
 }
