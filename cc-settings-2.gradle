@@ -7,10 +7,14 @@
 project.apply plugin: 'cc-register'
 def dependencyMode = GradleVersion.version(project.gradle.gradleVersion) >= GradleVersion.version('4.1') ? 'api' : 'compile'
 project.dependencies.add(dependencyMode, "com.billy.android:cc:2.1.5") //用最新版
-
+//apply plugin: 'com.jakewharton.butterknife'
 
 dependencies {
     implementation project(':base_common')
+
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
 
     //2018-06-03新增：这里是为了示例添加全局拦截器
     if (project.ext.has('runAsApp') && project.ext.runAsApp) {
