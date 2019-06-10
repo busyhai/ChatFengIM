@@ -24,16 +24,16 @@ public class Base  implements IGlobalCCInterceptor {
     @Override
     public CCResult intercept(Chain chain) {
 
-        Log.i(TAG, "============log before:" + chain.getCC());
+/*        Log.i(TAG, "============log before:" + chain.getCC());
 
 
         String w = "dzzzzz";
         chain.getCC().getParams().replace("wdh",w);
-        chain.getCC().cancel();
+        chain.getCC().cancel();*/
 
         CCResult result = chain.proceed();
-        Log.i(TAG, "============log after:" + result);
-       result.setSuccess(false);
+/*        Log.i(TAG, "============log after:" + result);
+       result.setSuccess(false);*/
         return result;
     }
 }

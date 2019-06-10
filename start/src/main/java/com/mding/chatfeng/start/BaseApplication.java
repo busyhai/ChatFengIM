@@ -6,8 +6,6 @@ import android.content.Context;
 import android.os.PowerManager;
 
 import com.billy.cc.core.component.CC;
-import com.mding.chatfeng.base_common.request.create;
-import com.qmuiteam.qmui.arch.QMUISwipeBackActivityManager;
 
 public class BaseApplication extends Application {
     //cpu常开，息屏保活
