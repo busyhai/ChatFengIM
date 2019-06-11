@@ -27,7 +27,7 @@ public class IA_FindTokenAndLogin implements IActionProcessor{
 
     @Override
     public boolean onActionCall(CC cc) {
-
+        CCUtil.navigateTo(cc, LoginActivity.class);
   /*      boolean is2Act= (boolean) cc.getParams().get("toAct");
         if(is2Act)
         {

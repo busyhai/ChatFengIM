@@ -9,11 +9,25 @@ def dependencyMode = GradleVersion.version(project.gradle.gradleVersion) >= Grad
 project.dependencies.add(dependencyMode, "com.billy.android:cc:2.1.5") //用最新版
 //apply plugin: 'com.jakewharton.butterknife'
 
+
+
 dependencies {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude module: 'support-v4'
+        exclude group: 'com.android.support'
+        exclude group: 'org.greenrobot:eventbus:3.1.1'
+        exclude group: 'okio'
+    })
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+//    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation project(':base_common')
 
-    implementation 'com.jakewharton:butterknife:8.4.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+/*
+    implementation 'com.jakewharton:butterknife:9.0.0-rc1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+*/
+
 
 
     //2018-06-03新增：这里是为了示例添加全局拦截器

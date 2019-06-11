@@ -5,6 +5,8 @@ import android.util.Log;
 
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
+import com.billy.cc.core.component.CCUtil;
+import com.mding.chatfeng.login.LoginActivity;
 
 /**
  * 根据登入请求信息获取Token
@@ -23,8 +25,9 @@ public class IA_GetTokenAndSave implements IActionProcessor{
         //此处获得登入页的账号密码，并请求网络获得返回数据并解析
         //解析成功后存储token并调用home模块，然后回调通知登入页
 
-
+        CCUtil.navigateTo(cc, LoginActivity.class);
         Log.d("xx","IA_Login:IA_GetTokenAndSave");
+
         CC.sendCCResult(cc.getCallId(), CCResult.success());
         return false;
     }
